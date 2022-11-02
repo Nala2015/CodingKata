@@ -6,9 +6,11 @@ public class StringCalculator
             String[] testBits = testString.split(",");
             for (String bit : testBits)
                 total += Integer.parseInt(bit);
+
             return total;
         }
         return 0;
+
     }
 }
 
