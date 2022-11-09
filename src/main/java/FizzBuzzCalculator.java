@@ -6,7 +6,11 @@ public class FizzBuzzCalculator
     {
         StringBuilder calculation = new StringBuilder();
 
-        if(Integer.toString(i).contains("5")) {
+        if(containsFive(i)) {
+            calculation.append(FIZZ);
+        }
+
+        if(containsThree(i)) {
             calculation.append(BUZZ);
         }
 
@@ -33,6 +37,14 @@ public class FizzBuzzCalculator
     private boolean divisibleByFive(int i)
     {
         return i % 5 == 0;
+    }
+
+    private boolean containsFive (int i){
+        return Integer.toString(i).contains("3");
+    }
+
+    private boolean containsThree (int i) {
+        return Integer.toString(i).contains("5");
     }
 
 
