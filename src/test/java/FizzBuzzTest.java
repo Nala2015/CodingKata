@@ -47,7 +47,7 @@ public class FizzBuzzTest
     }
 
     @ParameterizedTest
-    @CsvSource({"5,'Buzz'",
+    @CsvSource({"5,'BuzzBuzz'",
             "10,'Buzz'"})
     public void testCalculateMethodReturnsBuzzWhenDivisibleByFive(int input, String expected)
     {
@@ -60,7 +60,7 @@ public class FizzBuzzTest
     }
 
     @ParameterizedTest
-    @CsvSource({"15,'FizzBuzz'",
+    @CsvSource({"15,'BuzzFizzBuzz'",
             "30,'FizzBuzz'"})
     public void testCalculateMethodReturnsFizzBuzzWhenDivisibleByFiveAndThree(int input, String expected)
     {
@@ -84,6 +84,16 @@ public class FizzBuzzTest
         System.out.println(result);
         assertEquals(expected,actual);
 
+    }
+
+    @Test
+    public void numberContainsFiveButIsNotDivisibleByFive() {
+        //58
+        FizzBuzzCalculator sut = new FizzBuzzCalculator();
+
+        String actual = sut.calculate(58);
+
+        assertEquals("Buzz", actual);
     }
 
     

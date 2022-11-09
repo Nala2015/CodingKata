@@ -121,4 +121,39 @@ public class StringCalculatorTest {
         assertEquals(expectedResult, response);
 
     }
+    @Test
+    public void newLineDelimiter() {
+        StringCalculator systemUnderTest = new StringCalculator();
+
+        String testString = "1\n2,3";
+
+        int response = systemUnderTest.Calculate(testString);
+
+        //act
+
+        //assert
+        assertEquals(6, response);
+    }
+
+    @Test
+    public void differentDelimiters() {
+        StringCalculator systemUnderTest = new StringCalculator();
+
+        String testString = "//;\n1;2";
+
+        int response = systemUnderTest.Calculate(testString);
+
+        assertEquals(3, response);
+    }
+
+    @Test
+    public void delimiterOnly() {
+        StringCalculator systemUnderTest = new StringCalculator();
+
+        String testString = "//;";
+
+        int response = systemUnderTest.Calculate(testString);
+
+        assertEquals(0, response);
+    }
 }

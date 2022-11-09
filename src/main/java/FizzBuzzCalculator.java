@@ -4,17 +4,25 @@ public class FizzBuzzCalculator
     public static final String BUZZ = "Buzz";
     public String calculate(int i)
     {
+        StringBuilder calculation = new StringBuilder();
+
+        if(Integer.toString(i).contains("5")) {
+            calculation.append(BUZZ);
+        }
 
         if (divisibleByThree(i) && divisibleByFive(i))
-            return FIZZ + BUZZ;
+            return calculation.append(FIZZ + BUZZ).toString();
+
         if (divisibleByThree(i))
-            return FIZZ;
+            return calculation.append(FIZZ).toString();
 
         if (divisibleByFive(i))
-            return BUZZ;
+            return calculation.append(BUZZ).toString();
 
-        return Integer.toString(i);
+        if (calculation.toString().isEmpty())
+            return Integer.toString(i);
 
+        return calculation.toString();
     }
 
     private boolean divisibleByThree(int i)
