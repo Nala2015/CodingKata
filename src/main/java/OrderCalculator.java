@@ -42,6 +42,8 @@ public class OrderCalculator {
 
         for (String book : booksInOrder)
         {
+            int targetBasket = 0;
+            int baskets = 0;
             double priceIncrement = 8;
             for (ArrayList<String> diverseBasket : diverseBaskets)
             {
@@ -50,19 +52,23 @@ public class OrderCalculator {
                 if (!diverseBasket.contains(book) && priceIncrease < priceIncrement )
                 {
                     priceIncrement = priceIncrease;
+                    targetBasket = baskets;
 //                    countOfNoneEmptyDiverseBaskets++;
 //                    diverseBasket.add(book);
 //                    break;
                 }
-                if (priceIncrement == 8)
-                {
-                    diverseBaskets.get(countOfNoneEmptyDiverseBaskets).add(book);
-                    countOfNoneEmptyDiverseBaskets++;
-                }
-                else{
 
-                }
+                baskets++;
             }
+            if (priceIncrement == 8)
+            {
+                diverseBaskets.get(countOfNoneEmptyDiverseBaskets).add(book);
+                countOfNoneEmptyDiverseBaskets++;
+            }
+            else{
+                diverseBaskets.get(targetBasket).add(book);
+            }
+
         }
         double total = 0;
         for (ArrayList<String> diverseBasket : diverseBaskets)
